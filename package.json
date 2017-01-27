@@ -13,7 +13,7 @@
     "vet": "npm list --depth=0 && ./node_modules/.bin/auditjs --package=./package.json && ./node_modules/.bin/eslint src/"
   },
   "author": "Kevin O'Brien <kevin@clockwork.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "auditjs": "^2.0.2",
     "babel-core": "^6.22.1",
