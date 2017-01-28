@@ -1,20 +1,11 @@
-// This is a karma config file. For more details see
-//   http://karma-runner.github.io/0.13/config/configuration-file.html
-// we are also using it with karma-webpack
-//   https://github.com/webpack/karma-webpack
-
-const path = require('path');
-const merge = require('webpack-merge');
-const baseConfig = require('./webpack.config');
 const webpack = require('webpack');
 const argv = require('yargs').argv;
 
-let webpackConfig = merge(baseConfig, {
-	devtool: '#inline-source-map'
-});
+let webpackConfig = require('./webpack.config');
 
+webpackConfig.devtool = '#inline-source-map';
 delete webpackConfig.vue.loaders.sass;
-delete webpackConfig.entry; // no need for app entry during tests
+delete webpackConfig.entry;
 
 module.exports = function (config) {
 	config.set({

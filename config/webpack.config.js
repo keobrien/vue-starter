@@ -50,6 +50,15 @@ module.exports = (function () {
 				'vue$': 'vue/dist/vue.common.js'
 			}
 		},
+		babel: {
+			"presets": ["es2015", "stage-2"],
+			"comments": false,
+			"env": {
+				"test": {
+					"plugins": [ "istanbul" ]
+				}
+			}
+		},
 		devtool: "#source-map" // #eval-source-map is faster but not compatible with ExtractTextPlugin
 	};
 

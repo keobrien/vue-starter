@@ -1,7 +1,6 @@
 <template>
 	<div>
-		{{ allTests.length }}
-		<button v-on:click="addTest('qwe')">Add</button>
+		<button v-on:click="addTest">Add</button>
 		<div class="test" v-for="test in allTests">{{ test }}</div>
 	</div>
 </template>

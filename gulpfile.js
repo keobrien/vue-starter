@@ -4,7 +4,6 @@ const argv = require('yargs').argv;
 const clean = require('gulp-clean');
 const gulp = require('gulp');
 const nodemon = require('gulp-nodemon');
-const nodemonConfig = require('./config/nodemon.config');
 const print = require('gulp-print');
 const webpack = require('gulp-webpack');
 const webpackConfigPath = './config/webpack.config.js';
@@ -45,7 +44,13 @@ function copyHtml() {
 }
 
 function serveTask () {
-	let stream =  nodemon(nodemonConfig);
+	let stream =  nodemon({
+		"script": "./config/server.js",
+		"verbose": false,
+		"watch": [
+			"./config"
+		]
+	});
 
 	stream.on('restart', function () {
 		console.log('restarted!')
