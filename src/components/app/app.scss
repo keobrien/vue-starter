@@ -1,5 +1,7 @@
-@import "../../scss/app.scss";
+@import '~vue-material/src/core/stylesheets/core';
 
 .test {
-	background: $bg-color;
+	background: #ccc;
 }
+
+

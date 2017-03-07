@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<button type="button" class="success button" v-on:click="addTest">Add</button>
+		<md-button class="md-raised md-primary" v-on:click.native="addTest">Add</md-button>
 		<div class="test" v-for="test in allTests">{{ test }}</div>
 	</div>
 </template>
