@@ -2,7 +2,7 @@
 
 import App from "./App.vue";
 
-describe('MyComponent', () => {
+describe('Main Application', () => {
 	it('has addTest method', () => {
 		expect(typeof App.methods.addTest).toBe('function');
 	});

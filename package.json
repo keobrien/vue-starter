@@ -12,7 +12,7 @@
     "precommit": "npm run vet && npm test",
     "vet": "npm list --depth=0 && ./node_modules/.bin/auditjs --package=./package.json && ./node_modules/.bin/eslint src/"
   },
-  "author": "Kevin O'Brien <kevin@clockwork.com>",
+  "author": "Dave Dohmeier <david.dohmeier@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "auditjs": "^2.0.2",
@@ -45,6 +45,8 @@
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "vue-loader": "^10.0.4",
+    "vue-material": "^0.7.1",
+    "vue-resource": "^1.2.1",
     "vue-style-loader": "^1.0.0",
     "vue-template-compiler": "^2.1.10",
     "webpack": "^1.14.0",
