@@ -18,3 +18,4 @@ const store = new Vuex.Store( {
 });
 
 App.init( store, 'main-app' );
+App.init( store, 'main-app-2' );

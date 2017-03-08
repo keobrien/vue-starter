@@ -3,7 +3,7 @@
 export default {
 	namespaced: true,
 	state     : {
-		selected: "1"
+		selected: ""
 	},
 	mutations : {
 		SELECT( state, option ) {
