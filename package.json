@@ -12,7 +12,8 @@
     "precommit": "npm run vet && npm test",
     "vet": "npm list --depth=0 && ./node_modules/.bin/auditjs --package=./package.json && ./node_modules/.bin/eslint src/"
   },
-  "author": "Dave Dohmeier <david.dohmeier@gmail.com>",
+  "author": "Kevin O'Brien <kevin@clockwork.com>",
+  "contributors": [ "Dave Dohmeier <david.dohmeier@gmail.com>" ],
   "license": "MIT",
   "devDependencies": {
     "auditjs": "^2.0.2",
