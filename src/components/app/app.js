@@ -2,29 +2,24 @@
 
 import Vue from 'vue';
 import { mapActions, mapGetters } from 'vuex';
-import appStore from './store.js';
-import ruForm from './form/Form.vue';
 
-const NAMESPACE  =  'app';
+import store from 'store.js';
+import ruForm from 'components/app/form/Form.vue';
+import appStore from 'components/app/store.js';
+
 
 const app = {
-	computed   : { ...mapGetters( NAMESPACE, [ 'allTests' ]) },
-	methods    : { ...mapActions( NAMESPACE, [ 'addTest' ]) },
+	state: { dave: 'cool' },
+	computed   : { ...mapGetters( appStore.namespace, [ 'allTests' ]) },
+	methods    : { ...mapActions( appStore.namespace, [ 'addTest' ]) },
 	components : { 'ru-form' : ruForm },
-	init       : initilize
+	init       : initilize,
 };
 
 export default app;
 
-var appStoreInit  =  false;
-function initilize ( store, el ) {
-
-	if ( ! appStoreInit ) {
-		store.registerModule( NAMESPACE, appStore );
-		appStoreInit  =  true;
-	}
-
-	new Vue({
+function initilize ( el ) {
+	return new Vue({
 		store: store,
 		el   : el,
 		render: h => h(app)

@@ -1,7 +1,11 @@
 'use strict';
 
-export default {
+import store from 'store.js';
+require( 'components/app/store.js' );
+
+const ruStore  =  {
 	namespaced: true,
+	namespace: 'app/form',
 	state     : {
 		selected: ""
 	},
@@ -17,5 +21,9 @@ export default {
 	},
 	getters   : {
 		getSelected: state => state.selected
-	}
+	},
 };
+
+store.registerModule( ruStore.namespace.split( '/' ) , ruStore );
+
+module.exports  =  ruStore;

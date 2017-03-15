@@ -1,7 +1,10 @@
 'use strict';
 
-export default {
+import store from 'store.js';
+
+const appStore  =  {
 	namespaced: true,
+	namespace: 'app',
 	state     : {
 		tests: [ 'asd' ],
 	},
@@ -19,3 +22,7 @@ export default {
 		allTests: state => state.tests,
 	}
 };
+
+store.registerModule( appStore.namespace , appStore );
+
+module.exports  =  appStore;

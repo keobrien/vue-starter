@@ -7,7 +7,7 @@
 		</div>
 	</md-layout>
 	<md-layout md-flex="70" md-flex-offset="30">
-		<ru-form></ru-form>
+		<ru-form dave="awesome"></ru-form>
 	</md-layout>
 </md-layout>
 </template>
