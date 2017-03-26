@@ -2,20 +2,20 @@
 
 import store from 'store.js';
 
-const appStore  =  {
+const appStore = {
 	namespaced: true,
-	namespace: 'app',
+	namespace : 'app',
 	state     : {
-		tests: [ 'asd' ],
+		tests: ['Initial test 0'],
 	},
 	mutations : {
-		ADD_TEST( state, text ) {
+		ADD_TEST(state, text) {
 			state.tests.push(text);
 		}
 	},
 	actions   : {
-		addTest: ( { commit }, text ) => {
-			commit( 'ADD_TEST', text );
+		addTest: ({commit}, text) => {
+			commit('ADD_TEST', text);
 		}
 	},
 	getters   : {
@@ -23,6 +23,6 @@ const appStore  =  {
 	}
 };
 
-store.registerModule( appStore.namespace , appStore );
+store.registerModule(appStore.namespace, appStore);
 
-module.exports  =  appStore;
+module.exports = appStore;
