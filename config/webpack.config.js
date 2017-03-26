@@ -1,4 +1,5 @@
 'use strict';
+var path = require('path');
 
 const argv = require('yargs').argv;
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -48,7 +49,10 @@ module.exports = (function () {
 		resolve: {
 			alias: {
 				'vue$': 'vue/dist/vue.common.js'
-			}
+			},
+			root: [
+				path.resolve( './src' )
+			]
 		},
 		babel: {
 			"presets": ["es2015", "stage-2"],
