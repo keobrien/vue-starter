@@ -6,6 +6,12 @@
 	</form>
 </template>
 
+<style lang="sass" scoped>
+	.test {
+		background: #ccc;
+	}
+</style>
+
 <script>
 	import { mapActions, mapState } from 'vuex';
 	import { namespace as appStoreNamespace } from './store.js';
@@ -38,8 +44,3 @@
 		this.inputData = '';
 	}
 </script>
-<style lang="sass" scoped>
-	.test {
-		background: #ccc;
-	}
-</style>
