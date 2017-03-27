@@ -2,52 +2,40 @@
 	<form v-on:submit.prevent="handleSubmit">
 		<input type="text" v-model="inputData">
 		<button type="submit">Add</button>
-		<div class="test" v-for="test in allTests">{{ test }}</div>
+		<div class="test" v-for="test in tests">{{ test }}</div>
 	</form>
 </template>
 
 <script>
-	import Vue from 'vue';
-	import { mapActions, mapGetters } from 'vuex';
+	import { mapActions, mapState } from 'vuex';
+	import { namespace as appStoreNamespace } from './store.js';
 
-	import store from 'store';
-	import appStore from './store.js';
-
-	const app = {
+	const App = {
 		data() {
 			return {
 				inputData: ''
 			}
 		},
 		computed: {
-			...mapGetters( appStore.namespace, [
-				'allTests'
+			...mapState( appStoreNamespace, [
+				'tests'
 			])
 		},
 		methods : {
-			...mapActions(appStore.namespace, [
+			...mapActions( appStoreNamespace, [
 				'addTest'
 			]),
 			handleSubmit
 		},
-		init,
 	};
 
-	export default app;
+	export default App;
 
 	//////////
 
 	function handleSubmit() {
 		this.addTest(this.inputData);
 		this.inputData = '';
-	}
-
-	function init ( el ) {
-		return new Vue({
-			store: store,
-			el   : el,
-			render: h => h(app)
-		});
 	}
 </script>
 <style lang="sass" scoped>

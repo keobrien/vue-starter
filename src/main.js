@@ -1,4 +1,4 @@
-import App from './components/app/App.vue';
+import * as app from './components/app';
 
-App.init( 'main-app' );
-App.init( 'main-app-2' );
+app.init( 'main-app' );
+app.init( 'main-app-2' );

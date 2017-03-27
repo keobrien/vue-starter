@@ -1,28 +1,23 @@
-'use strict';
+import globalStore from 'store';
+import _ from 'lodash';
 
-import store from 'store';
-
-const appStore = {
+export const namespace = 'app';
+export const store = {
 	namespaced: true,
-	namespace : 'app',
 	state     : {
-		tests: ['Initial test 0'],
+		tests: [
+			'Initial test 0'
+		],
 	},
 	mutations : {
-		ADD_TEST(state, text) {
-			state.tests.push(text);
-		}
+		ADD_TEST(state, text) { state.tests.push(text); }
 	},
 	actions   : {
-		addTest: ({commit}, text) => {
-			commit('ADD_TEST', text);
-		}
+		addTest({commit}, text) { commit('ADD_TEST', text); }
 	},
-	getters   : {
-		allTests: state => state.tests,
-	}
+	getters   : {}
 };
 
-store.registerModule(appStore.namespace, appStore);
+globalStore.registerModule(namespace.split('/'), _.cloneDeep(store));
 
-module.exports = appStore;
+export default store;
