@@ -10,7 +10,7 @@
 	import Vue from 'vue';
 	import { mapActions, mapGetters } from 'vuex';
 
-	import store from 'store.js';
+	import store from 'store';
 	import appStore from './store.js';
 
 	const app = {

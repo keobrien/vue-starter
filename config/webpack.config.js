@@ -1,9 +1,12 @@
 'use strict';
-var path = require('path');
 
 const argv = require('yargs').argv;
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require('webpack');
+const path = require('path');
+const WebpackNotifierPlugin = require('webpack-notifier');
+
+console.info(path.resolve('./' + process.env.npm_package_config_paths_source + '/modules'));
 
 module.exports = (function () {
 	let config = {
@@ -44,22 +47,28 @@ module.exports = (function () {
 					npm_package_config_paths_source: '"' + process.env.npm_package_config_paths_source + '"'
 				}
 			}),
-			new ExtractTextPlugin("style.css")
+			new ExtractTextPlugin("style.css"),
+			new WebpackNotifierPlugin({alwaysNotify: true}),
 		],
 		resolve: {
 			alias: {
 				'vue$': 'vue/dist/vue.common.js'
 			},
-			root: [
-				path.resolve( './src' )
-			]
+			root: path.resolve('./' + process.env.npm_package_config_paths_local_modules)
 		},
 		babel: {
 			"presets": ["es2015", "stage-2"],
 			"comments": false,
 			"env": {
 				"test": {
-					"plugins": [ "istanbul" ]
+					"plugins": [
+						[
+							"__coverage__",
+							{
+								"only": process.env.npm_package_config_paths_source + "/**/!(*spec|*mock).*"
+							}
+						]
+					]
 				}
 			}
 		},

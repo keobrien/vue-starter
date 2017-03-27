@@ -1,6 +1,6 @@
 'use strict';
 
-import store from 'store.js';
+import store from 'store';
 
 const appStore = {
 	namespaced: true,
